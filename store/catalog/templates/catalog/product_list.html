@@ -1,0 +1,48 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-0 "></div>
+    <div class="col-sm-11 page-header" style="margin-left: 4%;">
+        <h2 class="text-center">Catalog</h2>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+<div class="row">
+    <div class="col-sm-0"></div>
+
+    <div class="col-sm-11 panel panel-primary" style="margin-left: 4%;">
+               
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Категория</th>
+                    <th>Название</th>
+                    <th>Цена</th>
+                    <th>Количество</th>
+                </tr>
+                
+            </thead>
+            <tbody class="paleblue">
+                {% if catalog %} 
+                    {% for product in catalog %} 
+                        <tr>
+                            <td>{{ product.category}}</td>
+                            <td>{{ product.name}}</td>
+                            <td>{{ product.price}}</td>
+                            <td>{{ product.stock}}</td>
+                                                       
+                        </tr>
+
+                        {% endfor %} 
+                        {% endif %}
+            </tbody>
+        </table>
+
+        
+    </div>
+
+    <div class="col-sm-1"></div>
+
+</div>
+
+{% endblock %}
