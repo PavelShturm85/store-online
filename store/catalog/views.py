@@ -10,7 +10,7 @@ def ProductList(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
-    return render(request, 'catalog/product_list.html', {
+    return render(request, 'catalog/product/list.html', {
         'category': category,
         'categories': categories,
         'products': products
@@ -19,5 +19,5 @@ def ProductList(request, category_slug=None):
 
 # Страница товара
 def ProductDetail(request, id, slug):
-    product = get_object_or_404(Product, id=id, slug=slug, available=True)
-    return render(request, 'catalog/product_detail.html', {'product': product})
+    product = get_object_or_404(Product, id=id, slug=slug)
+    return render(request, 'catalog/product/detail.html', {'product': product})

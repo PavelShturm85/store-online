@@ -9,6 +9,6 @@ media
 *.wav
 __pycache__
 .DS_Store
-.vscode
+.vscode/
 *.retry
 db.sqlite3
