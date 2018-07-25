@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, render_to_response
 from .models import Category, Product
-
+from cart.forms import CartAddProductForm
 
 # Страница с товарами
+
+
 def ProductList(request, category_slug=None):
     category = None
     categories = Category.objects.all()
@@ -20,4 +22,7 @@ def ProductList(request, category_slug=None):
 # Страница товара
 def ProductDetail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug)
-    return render(request, 'catalog/product/detail.html', {'product': product})
+    cart_product_form = CartAddProductForm()
+    return render(request, 'catalog/product/detail.html',
+                              {'product': product,
+                               'cart_product_form': cart_product_form})

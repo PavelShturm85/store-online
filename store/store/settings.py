@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user.apps.UserConfig',
     'catalog.apps.CatalogConfig',
+    'cart.apps.CartConfig',
     'bootstrap3',
 
 ]
@@ -126,3 +127,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'catalog', 'static')
 MEDIA_URL= '/image/'
+
+CART_SESSION_ID = 'cart'

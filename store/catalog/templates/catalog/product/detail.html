@@ -4,6 +4,12 @@
   {{ product.name }}
 {% endblock %}
 {% block content %}
+  <p class="price">{{ product.price }} руб.</p>
+  <form action="{% url "cart:CartAdd" product.id %}" method="post">
+      {{ cart_product_form }}
+      {% csrf_token %}
+      <input type="submit" value="Добавить в корзину">
+  </form>
   <div class="product-detail">
     <div class="col-sm-4">
       <img src="{% if product.img %}{{ product.img.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" class="img-responsive">
